@@ -1,9 +1,8 @@
+import AppRouter from "./app/router"
+import "./app/App.scss"
+
 function App() {
-  return (
-    <main>
-      <h1>Burger World v2</h1>
-    </main>
-  )
+  return <AppRouter />
 }
 
 export default App

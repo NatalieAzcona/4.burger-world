@@ -1,0 +1,80 @@
+.ingredients-view {
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #ead7b6;
+}
+
+.hamburger {
+  margin-top: 16rem;
+  position: relative;
+  width: 20rem;
+  min-height: 20rem;
+}
+
+.bun {
+  width: 20rem;
+  height: 4rem;
+  background-color: #ebaa65;
+  border-radius: 1rem;
+  z-index: 10;
+}
+
+.bun--top {
+  height: 5rem;
+  border-radius: 5rem 5rem 1rem 1rem;
+  transform: translateY(-10rem);
+}
+
+.bun--bottom {
+  height: 5rem;
+  border-radius: 1rem 1rem 2rem 2rem;
+  transform: translateY(8rem);
+}
+
+.beef {
+  width: 20rem;
+  height: 4rem;
+  background-color: #5c3610;
+  border-radius: 1rem;
+  transform: translateY(0);
+  z-index: 10;
+}
+
+.salad {
+  width: 20rem;
+  height: 2rem;
+  background-color: #468f1b;
+  border-radius: 1rem;
+  transform: translateY(-6rem);
+}
+
+.cheese {
+  width: 20rem;
+  height: 2rem;
+  background-color: #faa12d;
+  border-radius: 1rem;
+  transform: translateY(-3rem);
+}
+
+.tomatos {
+  display: flex;
+  width: 20rem;
+  height: 2rem;
+  gap: 1rem;
+  transform: translateY(5rem);
+}
+
+.tomato {
+  height: 80%;
+  background-color: #e74c3c;
+  border-radius: 1rem;
+}
+
+.tomato--1 {
+  width: 8rem;
+}
+
+.tomato--2 {
+  width: 11rem;
+}
