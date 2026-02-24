@@ -1,24 +1,30 @@
-import "../../assets/styles/ingredients.scss"
+import React from "react";
+import "../../assets/styles/ingredients.scss";
+import { ingredients } from "../../data/ingredients";
+
+const IngredientPiece = ({ className }) => {
+  if (className === "tomatos") {
+    return (
+      <div className="tomatos">
+        <div className="tomato tomato--1"></div>
+        <div className="tomato tomato--2"></div>
+      </div>
+    );
+  }
+
+  return <div className={className}></div>;
+};
 
 function IngredientsCard() {
   return (
     <section className="ingredients-view">
       <div className="hamburger">
-        <div className="bun bun--top"></div>
-        <div className="salad"></div>
-        <div className="cheese"></div>
-        <div className="beef"></div>
-          <div className="tomatos">
-            <div className="tomato tomato--1"></div>
-            <div className="tomato tomato--2"></div>
-          </div>
-        <div className="bun bun--bottom"></div>
+        {ingredients.map((ingredient) => (
+          <IngredientPiece key={ingredient.id} className={ingredient.className} />
+        ))}
       </div>
     </section>
-  )
+  );
 }
 
-export default IngredientsCard
-
-
-//lista de ingredientes
+export default IngredientsCard;

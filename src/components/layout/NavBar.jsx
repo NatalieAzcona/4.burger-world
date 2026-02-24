@@ -5,7 +5,7 @@ import "./NavBar.scss";
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav className="main-nav">
             <ul>
                 <li>
                     <NavLink to="/" className={({ isActive})=> (isActive ? "active" : "")} >Home</NavLink>

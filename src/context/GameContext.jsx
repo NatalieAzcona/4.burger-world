@@ -25,12 +25,15 @@ export const GameProvider = ({ children }) => { //valores de base
   )
 }
 
-export const useGame = () => {    //centralizo en useGame
+export const useGame = () => {
   const context = useContext(GameContext)
-
   if (!context) {
-    console.log("useGame debe usarse dentro de <GameProvider>")
+    throw new Error("useGame must be used within a GameProvider")
   }
-
   return context
 }
+
+//cambiar a reducer, varios estados: necesito un contexto para proveer el reducer.
+
+//playername y difficulty 
+

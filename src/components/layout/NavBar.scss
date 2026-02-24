@@ -1,16 +1,18 @@
-nav ul {
+.main-nav ul {
     display: flex;
     gap: 16px;
     list-style: none;
     padding: 0;
+    margin: 0;
   }
   
-  nav a {
+.main-nav a {
     text-decoration: none;
     color: #333;
+    padding: 6px 0;
   }
   
-  nav a.active {
+.main-nav a.active {
     font-weight: bold;
     color: #e63946;
   }
