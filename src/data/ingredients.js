@@ -4,5 +4,6 @@ export const ingredients = [
   { id: "cheese", name: "Queso", className: "cheese" },
   { id: "beef", name: "Carne", className: "beef" },
   { id: "tomatos", name: "Tomate", className: "tomatos" },
+  { id: "onions", name: "cebolla", className: "onions" }, 
   { id: "bun-bottom", name: "Pan inferior", className: "bun bun--bottom" },
 ]

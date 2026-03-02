@@ -2,7 +2,7 @@ import React from "react";
 import "../../assets/styles/ingredients.scss";
 import { ingredients } from "../../data/ingredients";
 
-const IngredientPiece = ({ className }) => {
+export const IngredientPiece = ({ className }) => {
   if (className === "tomatos") {
     return (
       <div className="tomatos">
@@ -10,10 +10,18 @@ const IngredientPiece = ({ className }) => {
         <div className="tomato tomato--2"></div>
       </div>
     );
+  } else if (className === "onions") {
+      return (
+        <div className="onions">
+          <div className="onion onion--1"></div>
+          <div className="onion onion--2"></div>
+        </div>
+      );
   }
 
   return <div className={className}></div>;
 };
+
 
 function IngredientsCard() {
   return (

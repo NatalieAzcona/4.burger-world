@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react"
+import { levels } from "../data/levels"
+import { buildHamburger } from "../utils/buildHamburger"
 
 const GameContext = createContext(null) 
 
@@ -9,10 +11,12 @@ export const GameProvider = ({ children }) => { //valores de base
   })
 
 
-  const startGame = (formData) => {              //modifico
+  const startGame = (formData) => {
+    const layers = levels[formData.difficulty].layers
     setGameData({
       playerName: formData.playerName,
       difficulty: formData.difficulty,
+      targetBurger: buildHamburger(layers),
     })
   }
 
