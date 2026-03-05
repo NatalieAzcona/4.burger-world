@@ -1,6 +1,5 @@
-import InitialForm from "../context/initialForm";
+import InitialForm from "../components/game/InitialForm";
 import "./Home.scss";
-import { useGame } from "../context/GameContext"
 
 const Home = () => {
   return (

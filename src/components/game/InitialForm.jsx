@@ -1,12 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Box, Button, Heading, HStack, Input, Text, VStack } from "@chakra-ui/react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
-import { useGame } from "./GameContext"
+import { GameContext } from "../../context/GameContext"
 
 const InitialForm = () => {
-  const { startGame } = useGame()        //me lo traigo de GameContext
-  const navigate = useNavigate()
+
+  const { dispatch } = useContext(GameContext)
+  const navigate = useNavigate() 
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -16,8 +17,8 @@ const InitialForm = () => {
   })
 
   const onSubmit = (data) => {
-    startGame(data)     //Me traigo playerName y difficulty
-    navigate("/play")
+    dispatch({type: "START_GAME", data: data})   //data al contexto
+    navigate("/play")         //envío al play
   }
 
   return (

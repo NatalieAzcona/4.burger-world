@@ -1,16 +1,21 @@
-import { useGame } from "../../context/GameContext"
 import { IngredientPiece } from "./IngredientsCard"
 import "../../assets/styles/ingredients.scss"
+import { GameContext } from "../../context/GameContext"
+import { useContext } from "react"
+
+
 
 const OrderTicket = ({ timeLeft }) => {
-  const { gameData } = useGame()
-  const { targetBurger } = gameData
+
+const { state } = useContext(GameContext)
+const { targetBurger } = state
+
 
   return (
     <div>
       <p>{timeLeft}</p>
       <div className="hamburger">
-        {targetBurger.map((ingredient, index) => (
+        {targetBurger && targetBurger.map((ingredient, index) => (
           <IngredientPiece key={index} className={ingredient.className} />
         ))}
       </div>
