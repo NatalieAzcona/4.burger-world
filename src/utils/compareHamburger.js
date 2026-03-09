@@ -1,0 +1,1 @@
+const compareHamburger = (targetBurger, builtBurger) => {};

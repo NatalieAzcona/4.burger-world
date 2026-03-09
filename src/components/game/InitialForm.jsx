@@ -1,25 +1,32 @@
-import React, { useContext } from "react"
-import { Box, Button, Heading, HStack, Input, Text, VStack } from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
-import { GameContext } from "../../context/GameContext"
+import React, { useContext } from "react";
+import {
+  Box,
+  Button,
+  Heading,
+  HStack,
+  Input,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { GameContext } from "../../context/GameContext";
 
 const InitialForm = () => {
-
-  const { dispatch } = useContext(GameContext)
-  const navigate = useNavigate() 
+  const { dispatch } = useContext(GameContext);
+  const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
       playerName: "",
       difficulty: "easy",
     },
-  })
+  });
 
   const onSubmit = (data) => {
-    dispatch({type: "START_GAME", data: data})   //data al contexto
-    navigate("/play")         //envío al play
-  }
+    dispatch({ type: "START_GAME", data: data }); //data al contexto
+    navigate("/play"); //envío al play
+  };
 
   return (
     <Box
@@ -33,9 +40,22 @@ const InitialForm = () => {
       borderRadius="3xl"
       boxShadow="0 10px 0 0 var(--chakra-colors-bun), inset 0 2px 0 rgba(255,255,255,0.6)"
     >
-      <VStack as="form" onSubmit={handleSubmit(onSubmit)} align="stretch" gap={4}>
+      <VStack
+        as="form"
+        onSubmit={handleSubmit(onSubmit)}
+        align="stretch"
+        gap={4}
+      >
         <Box>
-          <Text as="label" className="game-title" htmlFor="playerName" display="block" mb={2} fontWeight="bold" color="choco">
+          <Text
+            as="label"
+            className="game-title"
+            htmlFor="playerName"
+            display="block"
+            mb={2}
+            fontWeight="bold"
+            color="choco"
+          >
             ¿Cuál es tu burgernombre?
           </Text>
           <Input
@@ -43,7 +63,10 @@ const InitialForm = () => {
             border="2px solid"
             borderColor="bun"
             borderRadius="full"
-            _focusVisible={{ borderColor: "ketchup", boxShadow: "0 0 0 2px var(--chakra-colors-ketchup)" }}
+            _focusVisible={{
+              borderColor: "ketchup",
+              boxShadow: "0 0 0 2px var(--chakra-colors-ketchup)",
+            }}
             _placeholder={{ color: "bun" }}
             placeholder="¿Hamburguesio..?"
             type="text"
@@ -98,7 +121,11 @@ const InitialForm = () => {
               w="full"
             >
               <HStack gap={2}>
-                <input type="radio" value="medium" {...register("difficulty")} />
+                <input
+                  type="radio"
+                  value="medium"
+                  {...register("difficulty")}
+                />
                 <Text color="choco" fontWeight="semibold">
                   Al punto 🔥🔥
                 </Text>
@@ -144,7 +171,7 @@ const InitialForm = () => {
         </Button>
       </VStack>
     </Box>
-  )
-}
+  );
+};
 
-export default InitialForm
+export default InitialForm;

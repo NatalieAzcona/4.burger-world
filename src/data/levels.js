@@ -1,5 +1,5 @@
 export const levels = {
-  easy:   { layers: 5 },
+  easy: { layers: 5 },
   medium: { layers: 8 },
-  hard:   { layers: 10 },
-}
+  hard: { layers: 10 },
+};

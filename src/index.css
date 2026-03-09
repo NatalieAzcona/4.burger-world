@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;500;600;700&display=swap");
 
 *,
 *::before,
@@ -10,7 +10,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'Fredoka', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-family: "Fredoka", "Trebuchet MS", "Segoe UI", sans-serif;
   color: #523726;
 }
 
@@ -24,6 +24,6 @@ h3,
 button,
 .game-title,
 .main-nav span {
-  font-family: 'Bungee', 'Fredoka', cursive;
+  font-family: "Bungee", "Fredoka", cursive;
   letter-spacing: 0.8px;
 }

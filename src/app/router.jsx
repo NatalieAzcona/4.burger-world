@@ -10,7 +10,7 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/play" element={<Play />}/>
+        <Route path="/play" element={<Play />} />
         <Route path="/score" element={<Score />} />
       </Route>
     </Routes>

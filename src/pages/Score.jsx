@@ -1,6 +1,6 @@
 // Resumen final con puntaje
 function Score() {
-  return <section>Score</section>
+  return <section>Score</section>;
 }
 
-export default Score
+export default Score;

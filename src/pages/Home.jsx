@@ -7,8 +7,6 @@ const Home = () => {
       <InitialForm />
     </div>
   );
-}
-
-
+};
 
 export default Home;
