@@ -1,16 +1,14 @@
 const compareHamburger = (targetBurger, builtBurger) => {
-    const targetBurgerIdArray = targetBurger.map((ing) => ing.id)
+  const targetBurgerIdArray = targetBurger.map((ing) => ing.id);
 
-    if (targetBurgerIdArray.join(",") === builtBurger.join(",")) {
-        return true
-    } else {
-        return false
-    }
-
+  if (targetBurgerIdArray.join(",") === builtBurger.join(",")) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 export default compareHamburger;
-
 
 /* //targetBurger [
   { id: "bun-top", name: "Pan superior", className: "bun bun--top" },
