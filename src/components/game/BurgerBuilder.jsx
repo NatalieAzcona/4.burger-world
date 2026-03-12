@@ -5,20 +5,27 @@ import Draggable from "./Draggable";
 import { ingredients } from "../../data/ingredients";
 import Droppable from "./Droppable";
 import { IngredientPiece } from "./IngredientsCard";
+import compareHamburger from "../../utils/compareHamburger";
 
 const BurgerBuilder = () => {
-  const { state } = useContext(GameContext);
+  const { state, dispatch } = useContext(GameContext);
   const { targetBurger } = state; //aqui la hamburguesa del ticket
 
   const [builtBurger, setBuiltBurger] = useState([]); //aqui la hamburguesa que construiremos en array
 
+
   return (
     <DragDropProvider
-      onDragEnd={(e) => {
-        e.operation.target !== null
-          ? setBuiltBurger([...builtBurger, e.operation.source.id])
-          : null;
-      }}
+    onDragEnd={(e) => {
+      if (e.operation.target === null) return
+      const newBurger = [...builtBurger, e.operation.source.id]  //guardo porque es asíncrono y no lo pilla de una
+      setBuiltBurger(newBurger)
+
+    }}
+    
+
+    //      const compared = compareHamburger(targetBurger, newBurger)
+    //compared ? dispatch ({type: "BURGER_COMPLETE"}) : dispatch ({type: "WRONG_ATTEMPT"})
     >
       <div>
         <p>Usa estos ingredientes</p>
@@ -37,6 +44,11 @@ const BurgerBuilder = () => {
               <IngredientPiece key={index} className={ingredient.className} />
             );
           })}
+        <button onClick={() => {
+         const compared = compareHamburger(targetBurger, builtBurger)
+         compared ? dispatch({type: "BURGER_COMPLETE"}) : dispatch({type: "WRONG_ATTEMPT"})
+          }}>Comprobar</button>
+
         </div>
       </Droppable>
     </DragDropProvider>
