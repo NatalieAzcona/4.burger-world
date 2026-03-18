@@ -1,23 +1,23 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import React, { useContext, useState } from "react";
 import { GameContext } from "../../context/GameContext";
-import Draggable from "./Draggable";
-import { ingredients } from "../../data/ingredients";
-import Droppable from "./Droppable";
-import { IngredientPiece } from "./IngredientsCard";
 import compareHamburger from "../../utils/compareHamburger";
 import "./BurgerBuilder.scss";
 import useCountdown from "../../hooks/useCountdown";
+import GameInfo from "./GameInfo";
+import IngredientsPanel from "./ingredientsPanel";
+import DropZone from "./DropZone";
 
 const BurgerBuilder = () => {
   const { state, dispatch } = useContext(GameContext);
   const { targetBurger } = state; //aqui la hamburguesa del ticket
   const [builtBurger, setBuiltBurger] = useState([]); //aqui la hamburguesa que construiremos en array
-  const countdown = useCountdown();
+  const countdown = useCountdown(60, "GAME_OVER");
 
   return (
     <>
       {countdown}
+      <GameInfo/>
       <DragDropProvider
         onDragEnd={(e) => {
           if (e.operation.target === null) return;
@@ -27,28 +27,8 @@ const BurgerBuilder = () => {
       >
         <div className="burger-builder-wrapper">
           <div className="burger-builder">
-            <div>
-              <p>Usa estos ingredientes</p>
-              {ingredients.map((i) => (
-                <Draggable key={i.id} id={i.id}>
-                  <IngredientPiece className={i.className} />
-                </Draggable>
-              ))}
-            </div>
-            <Droppable id="burger-zone">
-              <div>
-                <p>Construye tu hamburguesa</p>
-                {builtBurger.map((i, index) => {
-                  const ingredient = ingredients.find((ing) => ing.id === i);
-                  return (
-                    <IngredientPiece
-                      key={index}
-                      className={ingredient.className}
-                    />
-                  );
-                })}
-              </div>
-            </Droppable>
+            <IngredientsPanel/>
+            <DropZone builtBurger={builtBurger} />
           </div>
           <button
             onClick={() => {

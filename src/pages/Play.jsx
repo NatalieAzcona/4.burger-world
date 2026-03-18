@@ -2,9 +2,13 @@ import { useContext, useEffect } from "react";
 import OrderTicket from "../components/game/OrderTicket";
 import { GameContext } from "../context/GameContext";
 import BurgerBuilder from "../components/game/BurgerBuilder";
+import useCountdown from "../hooks/useCountdown";
+
+
 
 const Play = () => {
   const { state, dispatch } = useContext(GameContext);
+  const countdown = useCountdown(10, "START_BUILDING");
 
   const views = {
     showing: <OrderTicket />,
@@ -13,16 +17,11 @@ const Play = () => {
     gameover: <p>Fin</p>, //pendiente
   };
 
-  //Transición para SHOWING - timer ticket
-
-  useEffect(() => {
-    if (state.phase != "showing") return;
-    const time10 = setTimeout(() => {
-      dispatch({ type: "START_BUILDING" });
-    }, 10000);
-    return () => clearTimeout(time10);
-  }, [state.phase]);
-
-  return views[state.phase];
+  return (
+    <>
+      {state.phase === "showing" ? countdown : null}
+      {views[state.phase]}
+    </>
+  )
 };
 export default Play;

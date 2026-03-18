@@ -1,14 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GameContext } from "../context/GameContext";
 
-const useCountdown = () => {
+const useCountdown = (sec, statePhase) => {
   const { state, dispatch } = useContext(GameContext);
 
-  const [count, setCount] = useState(60);
+  const [count, setCount] = useState(sec);
 
   useEffect(() => {
+
     if (count === 0) {
-      dispatch({ type: "GAME_OVER" });
+      dispatch({ type: statePhase});
       return;
     }
 
