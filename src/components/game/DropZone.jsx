@@ -2,12 +2,13 @@ import React from 'react'
 import { ingredients } from '../../data/ingredients';
 import { IngredientPiece } from './IngredientsCard';
 import Droppable from './Droppable';
+import "./DropZone.scss"
 
 const DropZone = ({builtBurger}) => {
   return (
-            <Droppable id="drop-zone">
-              <div>
-                <p>Construye tu hamburguesa</p>
+          <div>
+            <Droppable id="drop-zone" className="drop-zone">
+            <p>Construye tu hamburguesa</p>
                 {builtBurger.map((i, index) => {
                   const ingredient = ingredients.find((ing) => ing.id === i);
                   return (
@@ -17,8 +18,8 @@ const DropZone = ({builtBurger}) => {
                     />
                   );
                 })}
-              </div>
             </Droppable>
+          </div>
   )
 }
 
