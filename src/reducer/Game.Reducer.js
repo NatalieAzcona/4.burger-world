@@ -4,7 +4,7 @@ import { levels } from "../data/levels";
 export const Game_Initial = {
   phase: "showing",
   score: 0,
-  attempts: 0,
+  streak: 0,
   targetBurger: null,
   playerName: "",
   difficulty: "easy",
@@ -16,8 +16,8 @@ export const gameReducer = (state, action) => {
       return {
         ...state,
         phase: "showing",
+        streak: 0,
         score: 0,
-        attempts: 0,
         playerName: action.data.playerName,
         difficulty: action.data.difficulty,
         targetBurger: buildHamburger(levels[action.data.difficulty].layers),
@@ -27,13 +27,13 @@ export const gameReducer = (state, action) => {
     case "BURGER_COMPLETE":
       return {
         ...state,
-        phase: "showing",
-        attempts: 0,
+        phase: "success",
+        streak: state.streak + 1,
         score: state.score + 1,
         targetBurger: buildHamburger(levels[state.difficulty].layers),
       }; //tengo que poner showing porque pasa al siguiente estado
     case "WRONG_ATTEMPT":
-      return { ...state, phase: "error", attempts: state.attempts + 1 };
+      return {...state, phase: "error", streak: state.streak - 1, targetBurger: buildHamburger(levels[state.difficulty].layers) } 
     case "NEXT_BURGER":
       return {
         ...state,
@@ -47,3 +47,5 @@ export const gameReducer = (state, action) => {
       return state;
   }
 };
+
+

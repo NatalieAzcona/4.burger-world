@@ -1,15 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GameContext } from "../context/GameContext";
 
-const useCountdown = (sec, statePhase) => {
+const useCountdown = (sec, onComplete, currentPhase) => {
   const { state, dispatch } = useContext(GameContext);
-
   const [count, setCount] = useState(sec);
 
   useEffect(() => {
 
     if (count === 0) {
-      dispatch({ type: statePhase});
+      dispatch({ type: onComplete});
       return;
     }
 
@@ -21,6 +20,11 @@ const useCountdown = (sec, statePhase) => {
       clearInterval(interval);
     };
   }, [count]);
+
+//Resetear al cambiar de fase
+  useEffect(()=> {
+    setCount(sec)
+  }, [currentPhase])
 
   return (
     <>
