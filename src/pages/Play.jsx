@@ -5,19 +5,19 @@ import BurgerBuilder from "../components/game/BurgerBuilder";
 import WrongBurger from "../components/game/WrongBurger";
 import useCountdown from "../hooks/useCountdown";
 import CorrectBurger from "../components/game/CorrectBurger";
-
+import GameOver from "../components/game/GameOver";
 
 
 const Play = () => {
   const { state, dispatch } = useContext(GameContext);
-  const countdown = useCountdown(10, "START_BUILDING", state.phase);
+  const countdown = useCountdown(5, "START_BUILDING", state.phase);
 
   const views = {
     showing: <OrderTicket />,
-    building: <BurgerBuilder />, //pendiente modificar
+    building: <BurgerBuilder />, 
     error: <WrongBurger />,
     success: <CorrectBurger/>,
-    gameover: <p>Fin</p>, //pendiente
+    gameover: <GameOver/>
   };
 
   return (

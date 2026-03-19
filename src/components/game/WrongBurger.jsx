@@ -21,7 +21,7 @@ const WrongBurger = () => {
         </figure>
       </div>
 
-      <button onClick={() => dispatch({ type: 'START_BUILDING' })}>
+      <button onClick={() => dispatch({ type: 'NEXT_BURGER' })}>
         Intenta de nuevo
       </button>
     </div>
