@@ -6,7 +6,7 @@ import { ingredients } from "../../data/ingredients";
 const IngredientsPanel = () => {
   return (
     <div className="hamburger">
-      <p>Usa estos ingredientes</p>
+      <h3>Usa estos ingredientes</h3>
       {ingredients.map((i) => (
         <Draggable key={i.id} id={i.id}>
           <IngredientPiece className={i.className} />

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { Button } from "@chakra-ui/react";
 import { GameContext } from "../context/GameContext";
 import scoreMessages from "../data/scoreMessages";
 import { useNavigate } from "react-router-dom";
@@ -23,10 +24,30 @@ const Score = () => {
         Tu score es {score} para un nivel {difficulty}
       </p>
       <p> {scoreMessage.message}</p>
-      <button onClick={() => navigate("/ranking")}>
-        Ver mi posición en el ranking
-      </button>
-      <button onClick={() => navigate("/")}>Jugar de nuevo</button>
+      <Button
+        onClick={() => navigate("/ranking")}
+        bg="ash"
+        color="white"
+        border="3px solid"
+        borderRadius="full"
+        borderColor="choco"
+        boxShadow="0 4px 0 0 var(--chakra-colors-choco)"
+        _hover={{ bg: "gray.500", transform: "translateY(-1px)" }}
+      >
+        Ranking
+      </Button>
+      <Button
+        onClick={() => navigate("/")}
+        bg="ketchup"
+        color="white"
+        border="3px solid"
+        borderRadius="full"
+        borderColor="choco"
+        boxShadow="0 4px 0 0 var(--chakra-colors-choco)"
+        _hover={{ bg: "berry", transform: "translateY(-1px)" }}
+      >
+        Jugar de nuevo
+      </Button>
     </div>
   );
 };

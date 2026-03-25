@@ -8,7 +8,7 @@ const DropZone = ({ builtBurger }) => {
   return (
     <div>
       <Droppable id="drop-zone" className="drop-zone">
-        <p>Construye tu hamburguesa</p>
+        <h3>Construye tu hamburguesa</h3>
         {builtBurger.map((i, index) => {
           const ingredient = ingredients.find((ing) => ing.id === i);
           return (

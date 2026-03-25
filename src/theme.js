@@ -15,6 +15,7 @@ const config = defineConfig({
         cream: { value: "#fff7e8" },
         choco: { value: "#523726" },
         berry: { value: "#ff6bb3" },
+        ash: { value: "#808080" },
       },
     },
     semanticTokens: {
