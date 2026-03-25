@@ -1,18 +1,16 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from "@tanstack/react-query";
 
+const useGetScores = (difficulty) => {
+  const url = `http://localhost:3000/scores?difficulty=${difficulty}`;
 
-const useGetScores = () => {
-
-const url = "http://localhost:3000/scores/"
-
-const { data } = useQuery({
-    queryKey: ['scores'],
+  const { data } = useQuery({
+    queryKey: ["scores", difficulty],
     queryFn: async () => {
-      const response = await fetch(url)
-      return response.json()
-    }
-  })
-  return data
-}
+      const response = await fetch(url);
+      return response.json();
+    },
+  });
+  return data;
+};
 
-export default useGetScores
+export default useGetScores;
