@@ -1,22 +1,19 @@
-import { useMutation } from '@tanstack/react-query'
-
+import { useMutation } from "@tanstack/react-query";
 
 const usePostScore = () => {
+  const url = "http://localhost:3000/scores/newScore";
 
-const url = "http://localhost:3000/scores/newScore"
-
-
-const { mutate } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: async (data) => {
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      return response.json()
-    }
-  })
-  return mutate
-}
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      return response.json();
+    },
+  });
+  return mutate;
+};
 
-export default usePostScore
+export default usePostScore;

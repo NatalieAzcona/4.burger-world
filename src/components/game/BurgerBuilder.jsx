@@ -17,7 +17,7 @@ const BurgerBuilder = () => {
   return (
     <>
       {countdown}
-      <GameInfo/>
+      <GameInfo />
       <DragDropProvider
         onDragEnd={(e) => {
           if (e.operation.target === null) return;
@@ -27,7 +27,7 @@ const BurgerBuilder = () => {
       >
         <div className="burger-builder-wrapper">
           <div className="burger-builder">
-            <IngredientsPanel/>
+            <IngredientsPanel />
             <DropZone builtBurger={builtBurger} />
           </div>
           <button

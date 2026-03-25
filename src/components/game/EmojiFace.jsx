@@ -1,9 +1,7 @@
-import '../../assets/styles/emoji.scss'
+import "../../assets/styles/emoji.scss";
 
 const EmojiFace = ({ type, children }) => (
-  <div className={`emoji ${type}`}>
-    {children}
-  </div>
-)
+  <div className={`emoji ${type}`}>{children}</div>
+);
 
-export default EmojiFace
+export default EmojiFace;

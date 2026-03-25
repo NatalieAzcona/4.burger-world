@@ -6,9 +6,8 @@ const useCountdown = (sec, onComplete, currentPhase) => {
   const [count, setCount] = useState(sec);
 
   useEffect(() => {
-
     if (count === 0) {
-      dispatch({ type: onComplete});
+      dispatch({ type: onComplete });
       return;
     }
 
@@ -21,10 +20,10 @@ const useCountdown = (sec, onComplete, currentPhase) => {
     };
   }, [count]);
 
-//Resetear al cambiar de fase
-  useEffect(()=> {
-    setCount(sec)
-  }, [currentPhase])
+  //Resetear al cambiar de fase
+  useEffect(() => {
+    setCount(sec);
+  }, [currentPhase]);
 
   return (
     <>

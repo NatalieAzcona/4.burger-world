@@ -7,8 +7,7 @@ import "./main.scss";
 import "./index.css";
 import GameProvider from "./provider/GameProvider.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-const queryClient = new QueryClient()
-
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
@@ -18,6 +17,6 @@ createRoot(document.getElementById("root")).render(
           <App />
         </GameProvider>
       </BrowserRouter>
-    </ChakraProvider> 
+    </ChakraProvider>
   </QueryClientProvider>,
 );

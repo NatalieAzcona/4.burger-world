@@ -33,7 +33,12 @@ export const gameReducer = (state, action) => {
         targetBurger: buildHamburger(levels[state.difficulty].layers),
       }; //tengo que poner showing porque pasa al siguiente estado
     case "WRONG_ATTEMPT":
-      return {...state, phase: "error", streak: state.streak - 1, targetBurger: buildHamburger(levels[state.difficulty].layers) } 
+      return {
+        ...state,
+        phase: "error",
+        streak: state.streak - 1,
+        targetBurger: buildHamburger(levels[state.difficulty].layers),
+      };
     case "NEXT_BURGER":
       return {
         ...state,
@@ -47,5 +52,3 @@ export const gameReducer = (state, action) => {
       return state;
   }
 };
-
-
