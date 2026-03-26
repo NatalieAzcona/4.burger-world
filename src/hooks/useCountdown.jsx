@@ -2,12 +2,12 @@ import React, { useContext, useState, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { GameContext } from "../context/GameContext";
 
-const useCountdown = (sec, onComplete, currentPhase) => {
+const useCountdown = ({sec, onComplete, activePhase, currentPhase}) => {
   const { dispatch } = useContext(GameContext);
   const [count, setCount] = useState(sec);
 
   useEffect(() => {
-    if (count === 0) {
+    if (count === 0 && currentPhase === activePhase) {
       dispatch({ type: onComplete });
       return;
     }

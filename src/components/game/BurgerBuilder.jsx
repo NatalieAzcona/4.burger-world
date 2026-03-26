@@ -13,7 +13,7 @@ const BurgerBuilder = () => {
   const { state, dispatch } = useContext(GameContext);
   const { targetBurger } = state; //aqui la hamburguesa del ticket
   const [builtBurger, setBuiltBurger] = useState([]); //aqui la hamburguesa que construiremos en array
-  const countdown = useCountdown(60, "GAME_OVER", state.phase);
+  const countdown = useCountdown({sec: 60, onComplete: "GAME_OVER", activePhase: "building", currentPhase: state.phase});
 
   return (
     <>
